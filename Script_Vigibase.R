@@ -5,7 +5,7 @@
 
 library(readxl)
 library(pharmacocaen)
-
+library(fst)
 
 
 ### 1) Extraction des feuilles "Cases" de chaque table
@@ -105,4 +105,6 @@ VigiB_extraction <- bind_rows (Tramadol_Allemagne_cases,Tramadol_France_cases,Tr
 VigiB_extraction_f <- 
   VigiB_extraction %>% select (`Country of primary source`, `UMC report ID`)
 
+### 4) Exporter la table terminée 
 
+write_fst(VigiB_extraction_f, "//medical-srv1/Pharmacologi/pharmacovigilance/Internes/Claire Bernardeau/FST/Addictovigilance/Code R/Addictosurveillance/VigiB_extraction_f.fst")
